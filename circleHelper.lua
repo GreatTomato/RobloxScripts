@@ -11,16 +11,16 @@ local abutton = Instance.new("TextButton")
 --Properties:
 
 MakeCircle.Name = "MakeCircle"
-MakeCircle.Parent = game.StarterGui
+MakeCircle.Parent = game.Players.LocalPlayer.PlayerGui
 MakeCircle.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageLabel.Parent = MakeCircle
-ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
+ImageLabel.BackgroundTransparency = 0.000
 ImageLabel.BorderSizePixel = 0
-ImageLabel.Position = UDim2.new(1, -310, 0.331816077, 0)
+ImageLabel.Position = UDim2.new(1, -310, 0.333, 0)
 ImageLabel.Size = UDim2.new(0, 310, 0, 208)
-ImageLabel.Image = "rbxassetid://10957486003"
+ImageLabel.Image = "rbxassetid://10957486027"
 ImageLabel.ScaleType = Enum.ScaleType.Fit
 
 lbox.Name = "lbox"
@@ -29,13 +29,13 @@ lbox.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
 lbox.BorderColor3 = Color3.fromRGB(0, 0, 0)
 lbox.Position = UDim2.new(1, -160, 0, 13)
 lbox.Size = UDim2.new(0, 120, 0, 25)
-lbox.ClearTextOnFocus = false
+lbox.ClearTextOnFocus = true
 lbox.Font = Enum.Font.SourceSans
 lbox.PlaceholderText = "l in points"
 lbox.Text = ""
 lbox.TextColor3 = Color3.fromRGB(0, 0, 0)
 lbox.TextSize = 22.000
-lbox.TextWrapped = true
+lbox.TextWrapped = false
 
 abox.Name = "abox"
 abox.Parent = ImageLabel
@@ -43,13 +43,13 @@ abox.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
 abox.BorderColor3 = Color3.fromRGB(0, 0, 0)
 abox.Position = UDim2.new(1, -160, 0, 75)
 abox.Size = UDim2.new(0, 120, 0, 25)
-abox.ClearTextOnFocus = false
+abox.ClearTextOnFocus = true
 abox.Font = Enum.Font.SourceSans
 abox.PlaceholderText = "a in degrees"
 abox.Text = ""
 abox.TextColor3 = Color3.fromRGB(0, 0, 0)
 abox.TextSize = 22.000
-abox.TextWrapped = true
+abox.TextWrapped = false
 
 hbox.Name = "hbox"
 hbox.Parent = ImageLabel
@@ -57,13 +57,13 @@ hbox.BackgroundColor3 = Color3.fromRGB(46, 46, 46)
 hbox.BorderColor3 = Color3.fromRGB(0, 0, 0)
 hbox.Position = UDim2.new(1, -160, 0, 44)
 hbox.Size = UDim2.new(0, 120, 0, 25)
-hbox.ClearTextOnFocus = false
+hbox.ClearTextOnFocus = true
 hbox.Font = Enum.Font.SourceSans
 hbox.PlaceholderText = "h in points"
 hbox.Text = ""
 hbox.TextColor3 = Color3.fromRGB(0, 0, 0)
 hbox.TextSize = 22.000
-hbox.TextWrapped = true
+hbox.TextWrapped = false
 
 hbutton.Name = "hbutton"
 hbutton.Parent = ImageLabel
@@ -125,7 +125,7 @@ local hbutton = script.Parent.hbutton
     local a = abox.Text
      
     
-    if not(function() abox.Text = math.round(1000*2*math.deg(math.atan(l/(2*h))))/10000 end)  then abox.Text = "Missing argument" end
+    if (h == "") or (l == "")   then abox.Text = "Missing argument" else abox.Text = math.round(1000*2*math.deg(math.atan(l/(2*h))))/1000 end
     
   end
   local function lcalc()
@@ -133,7 +133,7 @@ local hbutton = script.Parent.hbutton
     local l = lbox.Text
     local a = abox.Text
     
-    if not(function() lbox.Text = math.round(1000*2*h*math.tan(math.rad(a/2)))/10000 end)  then lbox.Text = "Missing argument" end
+    if (h == "") or (a == "")  then lbox.Text = "Missing argument" else lbox.Text = math.round(1000*2*h*math.tan(math.rad(a/2)))/1000 end
     
   end
   local function hcalc()
@@ -141,7 +141,7 @@ local hbutton = script.Parent.hbutton
     local l = lbox.Text
     local a = abox.Text
     
-    if not(function() hbox.Text = math.round(1000*l/2*math.tan(math.rad(a/2)))/10000 end)  then hbox.Text = "Missing argument" end
+    if (l == "") or (a == "")then hbox.Text = "Missing argument" else hbox.Text = math.round(1000*l/2*math.tan(math.rad(a/2)))/1000 end
     
   end
   
