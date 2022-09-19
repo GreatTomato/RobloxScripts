@@ -115,7 +115,7 @@ local hbutton = script.Parent.hbutton
   local hbox = script.Parent.hbox
   local lbox = script.Parent.lbox
   
-  --position = Udim2(numbers)
+   game.Players.LocalPlayer.PlayerGui.ShopGui.SideFrame.Position = Udim2(1,0,0.6,0)
   
   
   local function acalc()
@@ -123,7 +123,7 @@ local hbutton = script.Parent.hbutton
     local l = lbox.Text
     local a = abox.Text
     
-    abox.Text = math.round(1000*2*math.deg(math.atan(l/(2*h))))/10000
+    if not(abox.Text = math.round(1000*2*math.deg(math.atan(l/(2*h))))/10000) then abox.Text = "Missing argument" end
     
   end
   local function lcalc()
@@ -131,7 +131,7 @@ local hbutton = script.Parent.hbutton
     local l = lbox.Text
     local a = abox.Text
     
-    lbox.Text = math.round(1000*2*h*math.tan(math.rad(a/2)))/10000
+    if not(lbox.Text = math.round(1000*2*h*math.tan(math.rad(a/2)))/10000) then lbox.Text = "Missing argument" end
     
   end
   local function hcalc()
@@ -139,7 +139,7 @@ local hbutton = script.Parent.hbutton
     local l = lbox.Text
     local a = abox.Text
     
-    hbox.Text = math.round(1000*l/2*math.tan(math.rad(a/2)))/10000
+    if not(hbox.Text = math.round(1000*l/2*math.tan(math.rad(a/2)))/10000) then hbox.Text = "Missing argument" end
     
   end
   
