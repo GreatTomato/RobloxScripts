@@ -1,3 +1,4 @@
+
 local MakeCircle = Instance.new("ScreenGui")
 local ImageLabel = Instance.new("ImageLabel")
 local lbox = Instance.new("TextBox")
@@ -10,7 +11,7 @@ local abutton = Instance.new("TextButton")
 --Properties:
 
 MakeCircle.Name = "MakeCircle"
-MakeCircle.Parent = game.StarterGui.CalcTool
+MakeCircle.Parent = game.StarterGui
 MakeCircle.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 ImageLabel.Parent = MakeCircle
@@ -115,15 +116,16 @@ local hbutton = script.Parent.hbutton
   local hbox = script.Parent.hbox
   local lbox = script.Parent.lbox
   
-   game.Players.LocalPlayer.PlayerGui.ShopGui.SideFrame.Position = Udim2(1,0,0.6,0)
+   game.Players.LocalPlayer.PlayerGui.ShopGui.SideFrame.Position = UDim2.new(1,0,0.6,0)
   
   
   local function acalc()
     local h = hbox.Text
     local l = lbox.Text
     local a = abox.Text
+     
     
-    if not(abox.Text = math.round(1000*2*math.deg(math.atan(l/(2*h))))/10000) then abox.Text = "Missing argument" end
+    if not(function() abox.Text = math.round(1000*2*math.deg(math.atan(l/(2*h))))/10000 end)  then abox.Text = "Missing argument" end
     
   end
   local function lcalc()
@@ -131,7 +133,7 @@ local hbutton = script.Parent.hbutton
     local l = lbox.Text
     local a = abox.Text
     
-    if not(lbox.Text = math.round(1000*2*h*math.tan(math.rad(a/2)))/10000) then lbox.Text = "Missing argument" end
+    if not(function() lbox.Text = math.round(1000*2*h*math.tan(math.rad(a/2)))/10000 end)  then lbox.Text = "Missing argument" end
     
   end
   local function hcalc()
@@ -139,7 +141,7 @@ local hbutton = script.Parent.hbutton
     local l = lbox.Text
     local a = abox.Text
     
-    if not(hbox.Text = math.round(1000*l/2*math.tan(math.rad(a/2)))/10000) then hbox.Text = "Missing argument" end
+    if not(function() hbox.Text = math.round(1000*l/2*math.tan(math.rad(a/2)))/10000 end)  then hbox.Text = "Missing argument" end
     
   end
   
